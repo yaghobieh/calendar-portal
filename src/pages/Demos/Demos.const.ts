@@ -63,7 +63,7 @@ export const TEST_EVENT_DESCRIPTION = `
 <h2>Notes for the editor</h2>
 <p>Keep scrolling. This copy is intentionally long so the notes field can grow and stay readable while you edit.</p>
 <p>Checklists, headings, and paragraphs should keep their Ink formatting when you save and open the view card again.</p>
-<p>Library version on npm stays 1.0.0 until publish. This work is 1.0.1.</p>
+<p>Library version on npm is 1.0.1.</p>
 <p>Last day of August 2026 is a full work block from morning through late afternoon so week and day views have a tall event to click.</p>
 <p>People on this event should appear as chips. Open invite to add or remove from the dropdown list.</p>
 <p>Relation dropdown should list other demo events. Pick one and confirm ribbons still draw after save.</p>

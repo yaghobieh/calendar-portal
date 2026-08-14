@@ -24,14 +24,14 @@ export const Home: FC = () => {
   return (
     <Layout>
       <section className="mesh-bg relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-20 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <Badge variant="info" className="mb-6">
+              <Badge variant="info" className="mb-4 sm:mb-6">
                 {t.home.badge}
               </Badge>
 
-              <Typography variant="h1" className="text-5xl md:text-7xl font-extrabold tracking-tight mb-2">
+              <Typography variant="h1" className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-2">
                 <span className="text-gradient-calendar">{t.home.title}</span>
               </Typography>
 
@@ -44,7 +44,7 @@ export const Home: FC = () => {
               </Typography>
 
               <div
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-sm mb-8"
+                className="cal-install-hint inline-flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm mb-8 max-w-full"
                 style={{
                   backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.04)',
                   border: `1px solid ${cardBorder}`,

@@ -63,6 +63,49 @@ body.light {
   overflow: auto;
 }
 
+.cal-navbar {
+  background-color: rgba(15, 15, 26, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.light .cal-navbar {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.cal-navbar__inner {
+  min-width: 0;
+}
+
+.cal-navbar__title {
+  max-width: 9.5rem;
+}
+
+.cal-navbar__mobile {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.light .cal-navbar__mobile {
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.cal-install-hint {
+  overflow-x: auto;
+}
+
+@media (min-width: 640px) {
+  .cal-navbar__title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 48rem) {
+  .calendar-demo {
+    min-height: 20rem;
+    max-height: 28rem;
+  }
+}
+
 .Cal-EventPopover__notesView .Ink-Editor {
   min-height: 20rem;
   height: 100%;

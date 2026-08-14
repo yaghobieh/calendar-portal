@@ -5,8 +5,8 @@ export const CHANGELOG_DOT_COLOR = '#0d9488';
 export const RELEASES: ChangelogRelease[] = [
   {
     version: '1.0.1',
-    date: 'Unreleased',
-    latest: false,
+    date: '2026-08-14',
+    latest: true,
     highlights: [
       'Hover an event chip for a popover (title, subtitle, time, Join meeting)',
       'Click popup is a wider Outlook-style card; edit scrolls and keeps Save and Cancel in the footer',
@@ -35,7 +35,7 @@ export const RELEASES: ChangelogRelease[] = [
   {
     version: '1.0.0',
     date: '2026-08-14',
-    latest: true,
+    latest: false,
     highlights: [
       'Month, week, day, and agenda views',
       'Event model with timed and all-day events',

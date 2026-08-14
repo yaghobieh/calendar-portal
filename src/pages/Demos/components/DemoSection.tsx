@@ -17,7 +17,7 @@ export const DemoSection: FC<DemoSectionProps> = (props) => {
       className="rounded-2xl overflow-hidden p-6 md:p-8"
       style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}
     >
-      <Flex justify="between" align="center" className="mb-6">
+      <Flex justify="between" align="center" wrap="wrap" gap={3} className="mb-6">
         <div>
           <Typography variant="h4" className="font-bold">{title}</Typography>
           <Typography variant="caption" style={{ color: mutedText }}>{description}</Typography>
