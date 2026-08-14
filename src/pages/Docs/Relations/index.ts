@@ -1,0 +1,1 @@
+export { DocsRelations } from './Relations';

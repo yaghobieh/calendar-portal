@@ -18,6 +18,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@constants": ["../calendar/src/constants/index.ts"],
+      "@utils": ["../calendar/src/utils/index.ts"],
+      "@hooks": ["../calendar/src/hooks/index.ts"],
       "@forgedevstack/calendar": ["../calendar/src/index.ts"],
       "@forgedevstack/calendar/hooks": ["../calendar/src/hooks/index.ts"]
     }

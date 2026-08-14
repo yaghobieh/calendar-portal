@@ -34,6 +34,9 @@ export const Changelog: FC = () => {
                 {release.latest && (
                   <Badge variant="info">{t.changelog.latest}</Badge>
                 )}
+                {release.inDevelopment && (
+                  <Badge variant="warning">{t.changelog.inDevelopment}</Badge>
+                )}
                 <Typography variant="caption" style={{ color: mutedText }}>{release.date}</Typography>
               </div>
 

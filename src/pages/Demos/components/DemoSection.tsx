@@ -1,6 +1,6 @@
 import { useState, type FC } from 'react';
 import { Typography, CodeBlock, Button, Flex, BearIcons, useBear } from '@forgedevstack/bear';
-import { Calendar } from '@forgedevstack/calendar';
+import { ForgeCalendar } from '@/components/ForgeCalendar';
 import { useI18n } from '@/i18n';
 import { useThemeColors } from '@/hooks';
 import type { DemoSectionProps } from './DemoSection.types';
@@ -42,7 +42,7 @@ export const DemoSection: FC<DemoSectionProps> = (props) => {
         />
       ) : (
         <div className="calendar-demo">
-          <Calendar defaultView={view} events={events} mode={mode} />
+          <ForgeCalendar defaultView={view} events={events} mode={mode} />
         </div>
       )}
     </div>

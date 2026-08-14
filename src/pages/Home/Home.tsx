@@ -1,19 +1,20 @@
 import type { FC } from 'react';
 import { Link } from '@forgedevstack/forge-compass/react';
 import { Typography, Button, Badge, Flex, CodeBlock, BearIcons, Card, useBear } from '@forgedevstack/bear';
-import { Calendar } from '@forgedevstack/calendar';
 import { Layout } from '@/components/Layout';
+import { ForgeCalendar } from '@/components/ForgeCalendar';
 import { useI18n } from '@/i18n';
 import { useThemeColors } from '@/hooks';
 import { FORGESTACK_URL, ROUTE_PATHS } from '@/constants';
 import {
-  ECOSYSTEM_CARDS,
   FEATURE_KEYS,
   HERO_STATS,
   INSTALL_HINT,
   QUICK_START_CODE,
   SAMPLE_EVENTS,
 } from './Home.const';
+import { HomeVideo } from './HomeVideo';
+import { EcosystemStories } from './EcosystemStories';
 
 export const Home: FC = () => {
   const { t } = useI18n();
@@ -88,7 +89,7 @@ export const Home: FC = () => {
                 {t.home.liveDemoTitle}
               </Typography>
               <div className="calendar-demo">
-                <Calendar defaultView="month" events={SAMPLE_EVENTS} mode={mode} />
+                <ForgeCalendar defaultView="month" events={SAMPLE_EVENTS} mode={mode} />
               </div>
             </div>
           </div>
@@ -104,6 +105,8 @@ export const Home: FC = () => {
           showLineNumbers
         />
       </section>
+
+      <HomeVideo />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-14">
@@ -128,50 +131,13 @@ export const Home: FC = () => {
         </div>
       </section>
 
-      <section style={{ borderTop: `1px solid ${cardBorder}` }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center mb-14">
-            <Typography variant="h2" className="text-3xl md:text-4xl font-bold mb-3">{t.home.ecosystemTitle}</Typography>
-            <Typography variant="body1" style={{ color: mutedText }} className="max-w-2xl mx-auto">
-              {t.home.ecosystemDescription}
-            </Typography>
-          </div>
+      <EcosystemStories />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {ECOSYSTEM_CARDS.map((lib) => {
-              const copy = t.ecosystem[lib.key];
-              return (
-                <a
-                  key={lib.key}
-                  href={lib.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  <Card variant="ghost" padding="md" interactive className="card-hover text-center h-full">
-                    <div
-                      className="w-10 h-10 rounded-lg mx-auto mb-3 flex items-center justify-center"
-                      style={{ backgroundColor: `${lib.color}20` }}
-                    >
-                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: lib.color }} />
-                    </div>
-                    <Typography variant="body2" className="font-semibold mb-0.5">{copy.name}</Typography>
-                    <Typography variant="caption" style={{ color: mutedText, fontSize: 11 }}>
-                      {copy.description}
-                    </Typography>
-                  </Card>
-                </a>
-              );
-            })}
-          </div>
-
-          <div className="text-center mt-10">
-            <a href={FORGESTACK_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="calendarGhost">{t.home.visitForgeStack}</Button>
-            </a>
-          </div>
-        </div>
-      </section>
+      <div className="text-center mb-20">
+        <a href={FORGESTACK_URL} target="_blank" rel="noopener noreferrer">
+          <Button variant="calendarGhost">{t.home.visitForgeStack}</Button>
+        </a>
+      </div>
     </Layout>
   );
 };

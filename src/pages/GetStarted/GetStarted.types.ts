@@ -2,8 +2,10 @@ export type GetStartedSectionKey =
   | 'install'
   | 'importCss'
   | 'basicUsage'
-  | 'views'
+  | 'liveTitle'
   | 'events'
+  | 'addEvents'
+  | 'seeEvents'
   | 'translations';
 
 export interface GetStartedTocItem {

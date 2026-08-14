@@ -20,6 +20,9 @@ export default defineConfig({
       ),
       ...(useLocalCalendar
         ? {
+            '@constants': path.join(localCalendarSrc, 'constants', 'index.ts'),
+            '@utils': path.join(localCalendarSrc, 'utils', 'index.ts'),
+            '@hooks': path.join(localCalendarSrc, 'hooks', 'index.ts'),
             '@forgedevstack/calendar/hooks': path.join(localCalendarSrc, 'hooks', 'index.ts'),
             '@forgedevstack/calendar/styles.css': path.join(
               localCalendarSrc,

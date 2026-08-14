@@ -79,7 +79,7 @@ export const Footer: FC = () => {
           style={{ borderTop: `1px solid ${mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)'}` }}
         >
           <Typography variant="caption" className="opacity-40">
-            {t.footer.mitLicense} · {t.footer.builtWith} {t.footer.forgeStack}
+            {t.footer.mitLicense} · {t.footer.author} · {t.footer.builtWith} {t.footer.forgeStack}
           </Typography>
           <Typography variant="caption" className="opacity-40">
             {t.footer.ecosystemText}{' '}
