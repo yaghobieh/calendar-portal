@@ -11,6 +11,11 @@ export const es: TranslationStrings = {
     toggleTheme: 'Cambiar tema',
     language: 'Idioma',
   },
+  contextMenu: {
+    create: 'Crear evento',
+    markBusy: 'Marcar como día ocupado',
+    openEvent: 'Abrir evento',
+  },
   home: {
     badge: 'Mes · Semana · Día · Agenda',
     title: 'Forge Calendar',
@@ -103,7 +108,7 @@ export const es: TranslationStrings = {
   },
   demos: {
     title: 'Demos',
-    description: 'Vistas en vivo de mes, semana, día y agenda, más una demo para añadir eventos.',
+    description: 'Vistas en vivo de mes, semana, día y agenda, más añadir eventos y redimensionar, una pestaña a la vez.',
     switchTitle: 'Líneas de relación',
     switchDescription: 'Los eventos con relatedTo dibujan cintas en mes y semana. Muéstralas siempre, solo al hacer clic, o nunca — relations.visible.',
     addEvents: {
@@ -136,11 +141,16 @@ export const es: TranslationStrings = {
       title: 'Agenda',
       description: 'Eventos listados y agrupados por día.',
     },
+    resize: {
+      title: 'Redimensionar',
+      description: 'Vista semana: arrastra el borde inferior de un bloque. La duración se ajusta a 15 minutos y se guarda con onEventChange.',
+    },
   },
   changelog: {
     title: 'Cambios',
     description: 'Cada versión de Forge Calendar, registrada aquí.',
     latest: 'Última',
+    inDevelopment: 'En desarrollo',
   },
   footer: {
     tagline: 'La capa de programación de ForgeStack.',

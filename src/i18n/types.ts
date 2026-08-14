@@ -38,6 +38,11 @@ export interface TranslationStrings {
     toggleTheme: string;
     language: string;
   };
+  contextMenu: {
+    create: string;
+    markBusy: string;
+    openEvent: string;
+  };
   home: {
     badge: string;
     title: string;
@@ -120,11 +125,13 @@ export interface TranslationStrings {
     week: FeatureCopy;
     day: FeatureCopy;
     agenda: FeatureCopy;
+    resize: FeatureCopy;
   };
   changelog: {
     title: string;
     description: string;
     latest: string;
+    inDevelopment: string;
   };
   footer: {
     tagline: string;

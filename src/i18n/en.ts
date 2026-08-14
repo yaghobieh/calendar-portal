@@ -11,6 +11,11 @@ export const en: TranslationStrings = {
     toggleTheme: 'Toggle theme',
     language: 'Language',
   },
+  contextMenu: {
+    create: 'Create event',
+    markBusy: 'Mark as busy day',
+    openEvent: 'Open event',
+  },
   home: {
     badge: 'Month · Week · Day · Agenda',
     title: 'Forge Calendar',
@@ -103,7 +108,7 @@ export const en: TranslationStrings = {
   },
   demos: {
     title: 'Demos',
-    description: 'Live month, week, day, and agenda views — plus an interactive add-event demo.',
+    description: 'Live month, week, day, and agenda views — plus add-event and resize, one tab at a time.',
     switchTitle: 'Relation lines',
     switchDescription: 'Events with relatedTo draw ribbons on month and week. Show them always, only after a click, or never — relations.visible.',
     addEvents: {
@@ -136,11 +141,16 @@ export const en: TranslationStrings = {
       title: 'Agenda',
       description: 'Events listed and grouped by day.',
     },
+    resize: {
+      title: 'Resize',
+      description: 'Week view: drag the bottom edge of a timed block. Duration snaps to 15 minutes and saves through onEventChange.',
+    },
   },
   changelog: {
     title: 'Changelog',
     description: 'Every release of Forge Calendar, tracked here.',
     latest: 'Latest',
+    inDevelopment: 'In development',
   },
   footer: {
     tagline: 'The scheduling layer of ForgeStack.',

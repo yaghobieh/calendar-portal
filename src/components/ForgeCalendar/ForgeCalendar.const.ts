@@ -2,6 +2,9 @@ import type { CalendarPerson } from '@forgedevstack/calendar';
 
 export const NAV_ICON_STROKE = 2.5;
 export const NAV_ICON_SIZE = 'md' as const;
+export const MENU_CREATE = 'create';
+export const MENU_BUSY = 'busy';
+export const MENU_OPEN = 'open';
 
 export const AVATAR_MAYA = 'https://i.pravatar.cc/80?img=5';
 export const AVATAR_JON = 'https://i.pravatar.cc/80?img=12';

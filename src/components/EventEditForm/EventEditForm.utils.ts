@@ -59,7 +59,7 @@ export const recurrenceFromValues = (
 export const filterEventsByQuery = (events: CalendarEvent[], query: string): CalendarEvent[] => {
   const needle = query.trim().toLowerCase();
   if (needle.length === NUMBER_ZERO) {
-    return [];
+    return events;
   }
   return events.filter((item) => item.title.toLowerCase().includes(needle));
 };

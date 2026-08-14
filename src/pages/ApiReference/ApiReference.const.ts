@@ -59,7 +59,7 @@ export const CALENDAR_PROPS: CalendarPropRow[] = [
     prop: 'events',
     type: 'CalendarEvent[]',
     defaultValue: '[]',
-    description: 'Timed and all-day events',
+    description: 'Timed and all-day events. Optional meetingUrl shows Join meeting on chip hover and the view popup.',
   },
   {
     prop: 'people',
@@ -78,6 +78,12 @@ export const CALENDAR_PROPS: CalendarPropRow[] = [
     type: '(slot: CalendarSlot) => void',
     defaultValue: '—',
     description: 'Empty day or hour click. Month empty-day also opens the create popup unless eventModal.createOnSlot is false',
+  },
+  {
+    prop: 'onContextMenu',
+    type: '(payload: CalendarContextMenuPayload) => void',
+    defaultValue: '—',
+    description: 'Right-click a slot or event. Payload includes openCreate, markBusy, and openEvent. The portal wires these to Bear ContextMenu.',
   },
   {
     prop: 'firstDayOfWeek',

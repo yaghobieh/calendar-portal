@@ -3,6 +3,7 @@ import {
   Button,
   Chip,
   DatePicker,
+  Dropdown,
   Flex,
   Input,
   Select,
@@ -26,14 +27,13 @@ import {
   CHIP_SELECTED,
   CLOSE_GLYPH,
   DEFAULT_INTERVAL,
+  DROPDOWN_MAX_HEIGHT,
   EDIT_DATES,
   EDIT_FOOTER,
   EDIT_FORM,
+  EDIT_NOTES,
   EDIT_PEOPLE,
   EDIT_RELATED,
-  EDIT_SUGGEST,
-  EDIT_SUGGEST_ITEM,
-  EDIT_SUGGEST_META,
   EMPTY_STRING,
   FIELD_ALL_DAY,
   FIELD_END,
@@ -92,8 +92,6 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
   const [description, setDescription] = useState(event.description ?? EMPTY_STRING);
   const [peopleIds, setPeopleIds] = useState<string[]>(event.peopleIds ?? []);
   const [relatedTo, setRelatedTo] = useState<string[]>(event.relatedTo ?? []);
-  const [relatedQuery, setRelatedQuery] = useState(EMPTY_STRING);
-  const [inviteQuery, setInviteQuery] = useState(EMPTY_STRING);
   const [recurrenceFreq, setRecurrenceFreq] = useState<CalendarRecurrenceFreq>(
     event.recurrence?.freq ?? RECURRENCE_NONE,
   );
@@ -104,9 +102,9 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
   const catalog = events.filter((item) => item.id !== event.id);
   const selectedRelated = catalog.filter((item) => relatedTo.includes(item.id));
   const relatedChoices = catalog.filter((item) => !relatedTo.includes(item.id));
-  const relatedMatches = filterEventsByQuery(relatedChoices, relatedQuery);
+  const relatedMatches = filterEventsByQuery(relatedChoices, EMPTY_STRING);
   const selectedPeople = peopleForIds(people, peopleIds);
-  const inviteMatches = filterPeopleByQuery(people, peopleIds, inviteQuery);
+  const inviteMatches = filterPeopleByQuery(people, peopleIds, EMPTY_STRING);
 
   const buildEvent = (patch: Partial<CalendarEvent> = {}): CalendarEvent => ({
     ...event,
@@ -231,7 +229,6 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
       ) : null}
       {showField(fields, FIELD_RECURRENCE) ? (
         <Select
-          native
           fullWidth
           label={translations.recurrenceLabel}
           options={recurrenceOptions}
@@ -277,32 +274,28 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
               ))}
             </div>
           ) : null}
-          <Input
-            fullWidth
-            label={translations.invitePlaceholder}
-            value={inviteQuery}
-            onChange={(change) => setInviteQuery(change.target.value)}
+          <Dropdown
+            matchWidth
+            searchable
+            closeOnSelect={false}
+            maxHeight={DROPDOWN_MAX_HEIGHT}
+            searchPlaceholder={translations.invitePlaceholder}
+            trigger={
+              <Button fullWidth variant={BUTTON_CANCEL}>
+                {translations.invitePlaceholder}
+              </Button>
+            }
+            items={inviteMatches.map((person) => ({
+              key: person.id,
+              label: person.name,
+              description: person.email,
+              onClick: () => {
+                const next = [...peopleIds, person.id];
+                setPeopleIds(next);
+                emitDraft({ peopleIds: next });
+              },
+            }))}
           />
-          {inviteMatches.length > NUMBER_ZERO ? (
-            <div className={EDIT_SUGGEST}>
-              {inviteMatches.map((person) => (
-                <button
-                  key={person.id}
-                  type="button"
-                  className={EDIT_SUGGEST_ITEM}
-                  onClick={() => {
-                    const next = [...peopleIds, person.id];
-                    setPeopleIds(next);
-                    setInviteQuery(EMPTY_STRING);
-                    emitDraft({ peopleIds: next });
-                  }}
-                >
-                  <span>{person.name}</span>
-                  {person.email ? <span className={EDIT_SUGGEST_META}>{person.email}</span> : null}
-                </button>
-              ))}
-            </div>
-          ) : null}
         </Flex>
       ) : null}
       {showField(fields, FIELD_RELATED_TO) ? (
@@ -326,35 +319,32 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
               ))}
             </div>
           ) : null}
-          <Input
-            fullWidth
-            label={translations.relatedToPlaceholder}
-            value={relatedQuery}
-            onChange={(change) => setRelatedQuery(change.target.value)}
+          <Dropdown
+            matchWidth
+            searchable
+            closeOnSelect={false}
+            maxHeight={DROPDOWN_MAX_HEIGHT}
+            searchPlaceholder={translations.relatedToPlaceholder}
+            trigger={
+              <Button fullWidth variant={BUTTON_CANCEL}>
+                {translations.relatedToPlaceholder}
+              </Button>
+            }
+            items={relatedMatches.map((item) => ({
+              key: item.id,
+              label: item.title,
+              onClick: () => {
+                const next = togglePersonId(relatedTo, item.id);
+                setRelatedTo(next);
+                emitDraft({ relatedTo: next });
+              },
+            }))}
           />
-          {relatedMatches.length > NUMBER_ZERO ? (
-            <div className={EDIT_SUGGEST}>
-              {relatedMatches.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={EDIT_SUGGEST_ITEM}
-                  onClick={() => {
-                    const next = togglePersonId(relatedTo, item.id);
-                    setRelatedTo(next);
-                    setRelatedQuery(EMPTY_STRING);
-                    emitDraft({ relatedTo: next });
-                  }}
-                >
-                  {item.title}
-                </button>
-              ))}
-            </div>
-          ) : null}
         </Flex>
       ) : null}
       {showField(fields, FIELD_NOTES) ? (
-        <Flex direction="column" gap={2}>
+        <div className={EDIT_NOTES}>
+          <Flex direction="column" gap={2}>
           <Typography variant="caption">{translations.notesLabel}</Typography>
           <InkEditor
             value={description}
@@ -365,7 +355,8 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
             minHeight={INK_EDIT_MIN_HEIGHT}
             colorMode={mode === 'dark' ? 'dark' : 'light'}
           />
-        </Flex>
+          </Flex>
+        </div>
       ) : null}
       <div className={EDIT_FOOTER}>
         {showCancel !== false ? (
