@@ -1,6 +1,6 @@
 import { useState, type FC } from 'react';
 import { Typography, CodeBlock, Button, Flex, BearIcons, useBear } from '@forgedevstack/bear';
-import { Calendar } from '@forgedevstack/calendar';
+import { ForgeCalendar } from '@/components/ForgeCalendar';
 import { useI18n } from '@/i18n';
 import { useThemeColors } from '@/hooks';
 import type { DemoSectionProps } from './DemoSection.types';
@@ -17,7 +17,7 @@ export const DemoSection: FC<DemoSectionProps> = (props) => {
       className="rounded-2xl overflow-hidden p-6 md:p-8"
       style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}
     >
-      <Flex justify="between" align="center" className="mb-6">
+      <Flex justify="between" align="center" wrap="wrap" gap={3} className="mb-6">
         <div>
           <Typography variant="h4" className="font-bold">{title}</Typography>
           <Typography variant="caption" style={{ color: mutedText }}>{description}</Typography>
@@ -42,7 +42,7 @@ export const DemoSection: FC<DemoSectionProps> = (props) => {
         />
       ) : (
         <div className="calendar-demo">
-          <Calendar defaultView={view} events={events} mode={mode} />
+          <ForgeCalendar defaultView={view} events={events} mode={mode} />
         </div>
       )}
     </div>

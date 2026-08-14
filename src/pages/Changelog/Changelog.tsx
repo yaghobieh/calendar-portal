@@ -4,6 +4,7 @@ import { Layout } from '@/components/Layout';
 import { useI18n } from '@/i18n';
 import { useThemeColors } from '@/hooks';
 import { CHANGELOG_DOT_COLOR, RELEASES } from './Changelog.const';
+import { VERSION_PREFIX } from '@/constants';
 
 export const Changelog: FC = () => {
   const { t } = useI18n();
@@ -30,9 +31,12 @@ export const Changelog: FC = () => {
               />
 
               <div className="flex items-center gap-3 mb-4 flex-wrap">
-                <Typography variant="h3" className="text-2xl font-bold">v{release.version}</Typography>
+                <Typography variant="h3" className="text-2xl font-bold">{VERSION_PREFIX}{release.version}</Typography>
                 {release.latest && (
                   <Badge variant="info">{t.changelog.latest}</Badge>
+                )}
+                {release.inDevelopment && (
+                  <Badge variant="warning">{t.changelog.inDevelopment}</Badge>
                 )}
                 <Typography variant="caption" style={{ color: mutedText }}>{release.date}</Typography>
               </div>

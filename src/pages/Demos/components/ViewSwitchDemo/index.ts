@@ -1,0 +1,1 @@
+export { ViewSwitchDemo } from './ViewSwitchDemo';
