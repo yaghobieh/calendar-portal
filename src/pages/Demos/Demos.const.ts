@@ -110,6 +110,7 @@ export const DEMO_EVENTS: CalendarEvent[] = [
     peopleIds: ['maya', 'jon'],
     subtitle: 'Daily 15 min',
     severity: 'normal',
+    showAs: 'busy',
   },
   {
     id: 'design-sync',
@@ -120,6 +121,7 @@ export const DEMO_EVENTS: CalendarEvent[] = [
     description: '<p>Overlaps standup — Outlook-style columns.</p>',
     relatedTo: ['design-review'],
     peopleIds: ['maya', 'priya'],
+    showAs: 'busy',
   },
   {
     id: 'in-progress',
@@ -132,6 +134,7 @@ export const DEMO_EVENTS: CalendarEvent[] = [
     peopleIds: ['jon'],
     subtitle: 'Live block',
     severity: 'high',
+    showAs: 'busy',
   },
   {
     id: 'sprint-planning',
@@ -141,6 +144,7 @@ export const DEMO_EVENTS: CalendarEvent[] = [
     color: EVENT_COLOR_SKY,
     relatedTo: ['retro'],
     peopleIds: ['maya', 'jon', 'priya'],
+    showAs: 'tentative',
   },
   {
     id: 'design-review',
@@ -166,6 +170,7 @@ export const DEMO_EVENTS: CalendarEvent[] = [
     end: officeHours.end,
     allDay: true,
     color: EVENT_COLOR_EMERALD,
+    showAs: 'free',
   },
   {
     id: 'docs-pass',
@@ -186,6 +191,7 @@ export const DEMO_EVENTS: CalendarEvent[] = [
     peopleIds: ['maya', 'jon', 'priya', 'luis'],
     subtitle: 'Release gate',
     severity: 'urgent',
+    showAs: 'busy',
   },
   {
     id: 'retro',
@@ -215,6 +221,7 @@ export const DEMO_EVENTS: CalendarEvent[] = [
     relatedTo: ['docs-pass'],
     subtitle: TEST_EVENT_SUBTITLE,
     severity: 'high',
+    showAs: 'busy',
   },
 ];
 

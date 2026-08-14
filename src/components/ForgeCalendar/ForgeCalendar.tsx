@@ -4,6 +4,7 @@ import type { ContextMenuEntry } from '@forgedevstack/bear';
 import { Calendar } from '@forgedevstack/calendar';
 import type { CalendarContextMenuPayload, CalendarEvent, CalendarProps } from '@forgedevstack/calendar';
 import { EventEditForm } from '@/components/EventEditForm';
+import { EventNotesView } from '@/components/EventNotesView';
 import { forgeCalendarConfig } from '@/config';
 import { useI18n } from '@/i18n';
 import { DEFAULT_PEOPLE, MENU_BUSY, MENU_CREATE, MENU_OPEN, NAV_ICON_SIZE, NAV_ICON_STROKE } from './ForgeCalendar.const';
@@ -109,6 +110,10 @@ export const ForgeCalendar: FC<CalendarProps> = (props) => {
               />
             ),
           }
+        }
+        renderEventBody={
+          props.renderEventBody ??
+          ((event) => (event.description ? <EventNotesView html={event.description} /> : null))
         }
         renderEventEdit={
           props.renderEventEdit ??

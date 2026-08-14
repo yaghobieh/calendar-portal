@@ -30,6 +30,8 @@ export default defineCalendarConfig({
       people: true,
       notes: true,
       relatedTo: true,
+      severity: true,
+      showAs: true,
     },
   },
 });
@@ -65,7 +67,9 @@ export const CODE_JSON = `{
       "allDay": true,
       "people": true,
       "notes": true,
-      "relatedTo": true
+      "relatedTo": true,
+      "severity": true,
+      "showAs": true
     }
   }
 }`;

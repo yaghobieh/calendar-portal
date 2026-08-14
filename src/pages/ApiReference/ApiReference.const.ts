@@ -149,7 +149,7 @@ export const CALENDAR_PROPS: CalendarPropRow[] = [
     prop: 'editModal',
     type: 'CalendarEditModalConfig',
     defaultValue: '{ resizable: true }',
-    description: 'resizable timed blocks; fields to show or hide title, start, end, allDay, people, notes, relatedTo, recurrence',
+    description: 'resizable timed blocks; fields to show or hide title, start, end, allDay, people, notes, relatedTo, recurrence, severity, showAs',
   },
   {
     prop: 'relations',
@@ -198,6 +198,12 @@ export const CALENDAR_PROPS: CalendarPropRow[] = [
     type: 'CalendarSeverityIcons',
     defaultValue: 'built-in SVGs',
     description: 'Replace none, low, normal, high, and urgent marks on the event popup',
+  },
+  {
+    prop: 'renderEventBody',
+    type: '(event) => ReactNode',
+    defaultValue: 'plain description',
+    description: 'Replace the view-card notes. Portal uses a read-only Ink editor so HTML is kept.',
   },
   {
     prop: 'renderEventEdit',

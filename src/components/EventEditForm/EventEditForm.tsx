@@ -17,6 +17,8 @@ import { PersonChip } from '@forgedevstack/calendar';
 import type {
   CalendarEditFieldsConfig,
   CalendarEvent,
+  CalendarEventSeverity,
+  CalendarEventShowAs,
   CalendarRecurrenceFreq,
 } from '@forgedevstack/calendar';
 import type { EventEditFormProps } from './EventEditForm.types';
@@ -34,6 +36,7 @@ import {
   EDIT_NOTES,
   EDIT_PEOPLE,
   EDIT_RELATED,
+  EDIT_SCROLL,
   EMPTY_STRING,
   FIELD_ALL_DAY,
   FIELD_END,
@@ -41,6 +44,8 @@ import {
   FIELD_PEOPLE,
   FIELD_RECURRENCE,
   FIELD_RELATED_TO,
+  FIELD_SEVERITY,
+  FIELD_SHOW_AS,
   FIELD_START,
   FIELD_TITLE,
   INK_EDIT_MIN_HEIGHT,
@@ -51,6 +56,15 @@ import {
   RECURRENCE_NONE,
   RECURRENCE_WEEKLY,
   RECURRENCE_YEARLY,
+  SEVERITY_HIGH,
+  SEVERITY_LOW,
+  SEVERITY_NONE,
+  SEVERITY_NORMAL,
+  SEVERITY_URGENT,
+  SHOW_AS_BUSY,
+  SHOW_AS_FREE,
+  SHOW_AS_OOF,
+  SHOW_AS_TENTATIVE,
   NUMBER_ZERO,
   TIME_FORMAT_24H,
 } from './EventEditForm.const';
@@ -98,6 +112,8 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
   const [recurrenceInterval, setRecurrenceInterval] = useState(
     event.recurrence?.interval ?? DEFAULT_INTERVAL,
   );
+  const [severity, setSeverity] = useState<CalendarEventSeverity>(event.severity ?? SEVERITY_NONE);
+  const [showAs, setShowAs] = useState<CalendarEventShowAs>(event.showAs ?? SHOW_AS_BUSY);
 
   const catalog = events.filter((item) => item.id !== event.id);
   const selectedRelated = catalog.filter((item) => relatedTo.includes(item.id));
@@ -116,6 +132,8 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
     peopleIds,
     relatedTo,
     recurrence: recurrenceFromValues(recurrenceFreq, recurrenceInterval),
+    severity,
+    showAs,
     ...patch,
   });
 
@@ -135,9 +153,23 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
     { value: RECURRENCE_EVERY_X_MONTHS, label: translations.recurrenceEveryXMonths },
     { value: RECURRENCE_YEARLY, label: translations.recurrenceYearly },
   ];
+  const showAsOptions = [
+    { value: SHOW_AS_BUSY, label: translations.showAsBusy },
+    { value: SHOW_AS_FREE, label: translations.showAsFree },
+    { value: SHOW_AS_TENTATIVE, label: translations.showAsTentative },
+    { value: SHOW_AS_OOF, label: translations.showAsOof },
+  ];
+  const severityOptions = [
+    { value: SEVERITY_NONE, label: translations.severityNone },
+    { value: SEVERITY_LOW, label: translations.severityLow },
+    { value: SEVERITY_NORMAL, label: translations.severityNormal },
+    { value: SEVERITY_HIGH, label: translations.severityHigh },
+    { value: SEVERITY_URGENT, label: translations.severityUrgent },
+  ];
 
   return (
     <div className={EDIT_FORM}>
+      <div className={EDIT_SCROLL}>
       {showField(fields, FIELD_TITLE) ? (
         <Input
           fullWidth
@@ -342,22 +374,47 @@ export const EventEditForm: FC<EventEditFormProps> = (props) => {
           />
         </Flex>
       ) : null}
+      {showField(fields, FIELD_SHOW_AS) ? (
+        <Select
+          fullWidth
+          label={translations.showAsLabel}
+          options={showAsOptions}
+          value={showAs}
+          onChange={(value) => {
+            const next = value as CalendarEventShowAs;
+            setShowAs(next);
+            emitDraft({ showAs: next });
+          }}
+        />
+      ) : null}
+      {showField(fields, FIELD_SEVERITY) ? (
+        <Select
+          fullWidth
+          label={translations.severityLabel}
+          options={severityOptions}
+          value={severity}
+          onChange={(value) => {
+            const next = value as CalendarEventSeverity;
+            setSeverity(next);
+            emitDraft({ severity: next });
+          }}
+        />
+      ) : null}
       {showField(fields, FIELD_NOTES) ? (
         <div className={EDIT_NOTES}>
-          <Flex direction="column" gap={2}>
           <Typography variant="caption">{translations.notesLabel}</Typography>
           <InkEditor
-            value={description}
+            defaultValue={event.description ?? EMPTY_STRING}
             onChange={(value) => {
               setDescription(value);
-              emitDraft({ description: value.trim() ? value : undefined });
+              emitDraft({ description: value });
             }}
             minHeight={INK_EDIT_MIN_HEIGHT}
             colorMode={mode === 'dark' ? 'dark' : 'light'}
           />
-          </Flex>
         </div>
       ) : null}
+      </div>
       <div className={EDIT_FOOTER}>
         {showCancel !== false ? (
           <Button fullWidth variant={BUTTON_CANCEL} onClick={onCancel}>

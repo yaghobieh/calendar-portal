@@ -31,6 +31,8 @@ export const forgeCalendarConfig = defineCalendarConfig({
       notes: true,
       relatedTo: true,
       recurrence: true,
+      severity: true,
+      showAs: true,
     },
   },
 });

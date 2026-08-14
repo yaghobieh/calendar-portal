@@ -9,8 +9,10 @@ export const RELEASES: ChangelogRelease[] = [
     latest: false,
     highlights: [
       'Hover an event chip for a popover (title, subtitle, time, Join meeting)',
-      'Click popup is a wider Outlook-style card; edit and create are full size with Ink filling notes',
-      'Save and Cancel stay in the footer under the editor',
+      'Click popup is a wider Outlook-style card; edit scrolls and keeps Save and Cancel in the footer',
+      'Hover peek is a solid card above the grid; Ink notes keep their HTML in edit and view',
+      'Relation lines go from event chip to event chip with a thinner stroke',
+      'Show as (free, busy, tentative, out of office) and severity are on the event and in the editor',
       'Bear invite, relation, and recurrence dropdowns overlay the field instead of expanding the form',
       'Right-click a slot or event for Create event, Mark as busy day, and Open event (Bear ContextMenu)',
       'Demos are split into tabs, including a resize demo on week view',
