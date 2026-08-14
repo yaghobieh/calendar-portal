@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans antialiased;
+  min-height: 100vh;
+}
+
+body {
+  @apply bg-jet-900 text-white;
+}
+
+body.light {
+  @apply bg-white text-slate-900;
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.3);
+}
+
+.text-gradient-calendar {
+  background: linear-gradient(135deg, #5eead4, #14b8a6, #0d9488);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mesh-bg {
+  background:
+    radial-gradient(at 20% 30%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(45, 212, 191, 0.03) 0%, transparent 70%);
+}
+
+.light .mesh-bg {
+  background:
+    radial-gradient(at 20% 30%, rgba(13, 148, 136, 0.06) 0%, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(16, 185, 129, 0.04) 0%, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(45, 212, 191, 0.02) 0%, transparent 70%);
+}
+
+.glow-calendar {
+  box-shadow: 0 0 60px rgba(13, 148, 136, 0.15), 0 0 120px rgba(13, 148, 136, 0.05);
+}
+
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 8px 30px rgba(13, 148, 136, 0.1);
+}
+
+.calendar-demo {
+  max-height: 40rem;
+  overflow: auto;
+}
