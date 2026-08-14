@@ -33,22 +33,6 @@ export const calendarTheme: BearThemeOverride = {
   colors: {
     primary: CALENDAR_COLORS.primary,
     secondary: CALENDAR_COLORS.secondary,
-    background: {
-      primary: '#0a0a14',
-      secondary: '#111122',
-      tertiary: '#1a1a2e',
-    },
-    text: {
-      primary: '#f8fafc',
-      secondary: '#94a3b8',
-      muted: '#64748b',
-      inverted: '#0f172a',
-    },
-    border: {
-      default: 'rgba(255, 255, 255, 0.06)',
-      subtle: 'rgba(255, 255, 255, 0.03)',
-      strong: 'rgba(255, 255, 255, 0.12)',
-    },
   },
   typography: {
     fontFamily: {

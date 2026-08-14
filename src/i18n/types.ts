@@ -7,6 +7,21 @@ export interface FeatureCopy {
   description: string;
 }
 
+export interface AddEventsCopy {
+  title: string;
+  description: string;
+  hint: string;
+  titleLabel: string;
+  startLabel: string;
+  endLabel: string;
+  allDayLabel: string;
+  descriptionLabel: string;
+  add: string;
+  selectedTitle: string;
+  selectedEmpty: string;
+  allDay: string;
+}
+
 export interface EcosystemCopy {
   name: string;
   description: string;
@@ -32,6 +47,8 @@ export interface TranslationStrings {
     viewDemos: string;
     apiDocs: string;
     liveDemoTitle: string;
+    videoCaption: string;
+    ecosystemStoriesHint: string;
     quickStartTitle: string;
     featuresTitle: string;
     featuresDescription: string;
@@ -68,8 +85,21 @@ export interface TranslationStrings {
     viewsDesc: string;
     events: string;
     eventsDesc: string;
+    addEvents: string;
+    addEventsDesc: string;
+    seeEvents: string;
+    seeEventsDesc: string;
     translations: string;
     translationsDesc: string;
+    intro: string;
+    installBody: string;
+    usageBody: string;
+    nextViews: string;
+    nextEvents: string;
+    nextTheming: string;
+    nextConfig: string;
+    nextRelations: string;
+    liveTitle: string;
   };
   api: {
     title: string;
@@ -83,6 +113,9 @@ export interface TranslationStrings {
   demos: {
     title: string;
     description: string;
+    switchTitle: string;
+    switchDescription: string;
+    addEvents: AddEventsCopy;
     month: FeatureCopy;
     week: FeatureCopy;
     day: FeatureCopy;
@@ -104,11 +137,54 @@ export interface TranslationStrings {
     npm: string;
     ecosystemText: string;
     forgeStack: string;
+    author: string;
   };
   docs: {
     docs: string;
     onThisPage: string;
     documentation: string;
+    nav: {
+      getStarted: string;
+      views: string;
+      events: string;
+      theming: string;
+      config: string;
+      relations: string;
+      demos: string;
+      api: string;
+      changelog: string;
+    };
+    viewsTitle: string;
+    viewsDescription: string;
+    viewsIntro: string;
+    viewsControlled: string;
+    viewsSwitchHint: string;
+    eventsTitle: string;
+    eventsDescription: string;
+    eventsIntro: string;
+    eventsClick: string;
+    eventsPopup: string;
+    eventsPeople: string;
+    eventsEdit: string;
+    themingTitle: string;
+    themingDescription: string;
+    themingIntro: string;
+    themingHint: string;
+    configTitle: string;
+    configDescription: string;
+    configIntro: string;
+    configJson: string;
+    relationsTitle: string;
+    relationsDescription: string;
+    relationsIntro: string;
+    relationsAlways: string;
+    relationsOnClick: string;
+    relationsHover: string;
+    relationsEdit: string;
+    effectsTitle: string;
+    effectsDescription: string;
+    effectsIntro: string;
+    effectsCss: string;
   };
   stats: {
     views: string;

@@ -1,14 +1,16 @@
 import type { FC } from 'react';
-import { Typography } from '@forgedevstack/bear';
+import { Typography, useBear } from '@forgedevstack/bear';
 import { Layout } from '@/components/Layout';
 import { useI18n } from '@/i18n';
 import { useThemeColors } from '@/hooks';
 import { DEMO_CODES, DEMO_EVENTS, DEMO_KEYS } from './Demos.const';
-import { DemoSection } from './components';
+import { AddEventDemo, DemoSection } from './components';
+import { ForgeCalendar } from '@/components/ForgeCalendar';
 
 export const Demos: FC = () => {
   const { t } = useI18n();
   const { mutedText } = useThemeColors();
+  const { mode } = useBear();
 
   return (
     <Layout>
@@ -21,6 +23,19 @@ export const Demos: FC = () => {
         </div>
 
         <div className="space-y-10">
+          <div
+            className="rounded-2xl overflow-hidden p-6 md:p-8"
+            style={{ backgroundColor: 'transparent' }}
+          >
+            <Typography variant="h4" className="font-bold mb-2">{t.demos.switchTitle}</Typography>
+            <Typography variant="caption" style={{ color: mutedText }} className="mb-4 block">
+              {t.demos.switchDescription}
+            </Typography>
+            <div className="calendar-demo">
+              <ForgeCalendar defaultView="month" events={DEMO_EVENTS} mode={mode} />
+            </div>
+          </div>
+          <AddEventDemo initialEvents={DEMO_EVENTS} />
           {DEMO_KEYS.map((key) => {
             const demo = t.demos[key];
             return (

@@ -1,3 +1,4 @@
+import type { DocNavId } from '@/constants';
 import type { ReactNode } from 'react';
 
 export interface TocItem {
@@ -14,6 +15,6 @@ export interface DocLayoutProps {
 }
 
 export interface DocNavItem {
-  id: 'getStarted' | 'demos' | 'api' | 'changelog';
+  id: DocNavId;
   href: string;
 }
