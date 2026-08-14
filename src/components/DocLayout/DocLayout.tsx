@@ -27,8 +27,7 @@ export const DocLayout: FC<DocLayoutProps> = (props) => {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="block py-1 text-sm transition-colors hover:text-calendar-400"
-                    style={{ color: mutedText }}
+                    className="block py-1 text-sm transition-colors text-slate-500 hover:text-calendar-400"
                   >
                     {t.nav[item.id]}
                   </Link>
@@ -84,8 +83,7 @@ export const DocLayout: FC<DocLayoutProps> = (props) => {
                     <Link
                       key={item.href}
                       to={item.href}
-                      className="block py-1 text-sm"
-                      style={{ color: mutedText }}
+                      className="block py-1 text-sm text-slate-500 hover:text-calendar-400"
                       onClick={() => setTocOpen(false)}
                     >
                       {t.nav[item.id]}

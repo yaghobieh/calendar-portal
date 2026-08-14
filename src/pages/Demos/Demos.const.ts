@@ -63,7 +63,7 @@ const shipRelease = allDayRange(weekStart, DAY_FRIDAY);
 
 export const DEMO_EVENTS: CalendarEvent[] = [
   {
-    id: 'standup-mon',
+    id: 'standup',
     title: 'Standup',
     start: atDay(weekStart, DAY_MONDAY, STANDUP_HOUR, STANDUP_MINUTE),
     end: atDay(weekStart, DAY_MONDAY, STANDUP_HOUR, STANDUP_END_MINUTE),

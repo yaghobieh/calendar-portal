@@ -23,5 +23,6 @@
     }
   },
   "include": ["src", "../calendar/src"],
+  "exclude": ["../calendar/src/**/*.test.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
