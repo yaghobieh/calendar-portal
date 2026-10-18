@@ -4,9 +4,21 @@ export const CHANGELOG_DOT_COLOR = '#0d9488';
 
 export const RELEASES: ChangelogRelease[] = [
   {
+    version: '1.0.2',
+    date: '2026-10-18',
+    latest: true,
+    highlights: [
+      'Event calendar with month, day, year, and a from–to range',
+      'Theme follows light and dark, and settings cover the sidebar and week start',
+      'Resource filter for Work, Health, Social, Personal, Travel, and Family',
+      'Editor sits beside the calendar so an event can be changed in place',
+      'Timeline with one row per resource across seven months',
+    ],
+  },
+  {
     version: '1.0.1',
     date: '2026-08-14',
-    latest: true,
+    latest: false,
     highlights: [
       'Hover an event chip for a popover (title, subtitle, time, Join meeting)',
       'Click popup is a wider Outlook-style card; edit scrolls and keeps Save and Cancel in the footer',

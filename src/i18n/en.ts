@@ -24,7 +24,7 @@ export const en: TranslationStrings = {
     getStarted: 'Get Started',
     viewDemos: 'View Demos',
     apiDocs: 'API Docs',
-    liveDemoTitle: 'Live month view',
+    liveDemoTitle: 'Event calendar',
     videoCaption: 'Forge Calendar views — month grid, week timeline, day focus, and agenda list.',
     ecosystemStoriesHint: 'Open a story, then scan the list. Each tile is a looping preview of a ForgeStack library.',
     quickStartTitle: 'Quick start',
@@ -33,6 +33,13 @@ export const en: TranslationStrings = {
     ecosystemTitle: 'ForgeStack ecosystem',
     ecosystemDescription: 'Built to sit beside Bear, Grid Table, Anvil, Compass, and Rail.',
     visitForgeStack: 'Visit ForgeStack',
+    newsTitle: "What's new in 1.0.2",
+    newsItems: [
+      'Event calendar with month, day, year, and a from–to range',
+      'Resource filter for Work, Health, Social, Personal, Travel, and Family',
+      'Editor beside the calendar, so an event can be changed in place',
+      'Timeline with one row per resource across seven months',
+    ],
   },
   features: {
     month: {
@@ -108,7 +115,13 @@ export const en: TranslationStrings = {
   },
   demos: {
     title: 'Demos',
-    description: 'Live month, week, day, and agenda views — plus add-event and resize, one tab at a time.',
+    description: 'The 1.0.2 scheduler is the event calendar and the resource timeline. Classic month, week, day, and agenda views stay below.',
+    schedulerTitle: 'Event calendar',
+    schedulerDescription: 'Month grid, resource filter, side editor, and a resource timeline. Dialogs and filters come from Bear.',
+    schedulerPackage: '@forgedevstack/calendar on npm',
+    eventCalendar: 'Event calendar',
+    eventTimeline: 'Timeline',
+    classicTitle: 'Classic views',
     switchTitle: 'Relation lines',
     switchDescription: 'Events with relatedTo draw ribbons on month and week. Show them always, only after a click, or never — relations.visible.',
     addEvents: {

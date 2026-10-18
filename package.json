@@ -1,6 +1,6 @@
 {
   "name": "calendar-portal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,11 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@forgedevstack/bear": "^1.2.7",
-    "@forgedevstack/calendar": "1.0.1",
-    "@forgedevstack/forge-compass": "^1.0.0",
-    "@forgedevstack/ink": "^1.1.6",
-    "@forgedevstack/torch": "^1.0.0",
+    "@forgedevstack/bear": "^1.3.5",
+    "@forgedevstack/bear-icons": "^1.0.3",
+    "@forgedevstack/calendar": "^1.0.2",
+    "@forgedevstack/forge-compass": "^1.0.4",
+    "@forgedevstack/ink": "^1.2.0",
+    "@forgedevstack/torch": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

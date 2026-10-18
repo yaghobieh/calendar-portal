@@ -18,6 +18,7 @@ import {
   TAB_WEEK,
 } from './Demos.const';
 import { AddEventDemo, DemoSection } from './components';
+import { SchedulerDemo } from './components/SchedulerDemo';
 
 export const Demos: FC = () => {
   const { t } = useI18n();
@@ -25,14 +26,17 @@ export const Demos: FC = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-20 overflow-x-hidden">
-        <div className="text-center mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 overflow-x-hidden">
+        <div className="mb-10">
           <Typography variant="h1" className="text-4xl md:text-5xl font-bold mb-3">{t.demos.title}</Typography>
-          <Typography variant="body1" style={{ color: mutedText }} className="max-w-2xl mx-auto">
+          <Typography variant="body1" style={{ color: mutedText }} className="max-w-3xl">
             {t.demos.description}
           </Typography>
         </div>
 
+        <SchedulerDemo />
+
+        <Typography variant="h3" className="mb-4">{t.demos.classicTitle}</Typography>
         <Tabs defaultTab={DEFAULT_DEMO_TAB}>
           <TabList wrap>
             <Tab id={TAB_MONTH}>{t.demos.month.title}</Tab>

@@ -24,7 +24,7 @@ export const es: TranslationStrings = {
     getStarted: 'Empezar',
     viewDemos: 'Ver demos',
     apiDocs: 'API',
-    liveDemoTitle: 'Vista de mes en vivo',
+    liveDemoTitle: 'Calendario de eventos',
     videoCaption: 'Vistas de Forge Calendar — mes, semana, día y agenda.',
     ecosystemStoriesHint: 'Abre una historia y recorre la lista. Cada mosaico es una vista previa en bucle de una librería ForgeStack.',
     quickStartTitle: 'Inicio rápido',
@@ -33,6 +33,13 @@ export const es: TranslationStrings = {
     ecosystemTitle: 'Ecosistema ForgeStack',
     ecosystemDescription: 'Diseñado para convivir con Bear, Grid Table, Anvil, Compass y Rail.',
     visitForgeStack: 'Visitar ForgeStack',
+    newsTitle: 'Novedades de 1.0.2',
+    newsItems: [
+      'Calendario de eventos con mes, día, año y un rango desde–hasta',
+      'Filtro de recursos para Trabajo, Salud, Social, Personal, Viajes y Familia',
+      'Editor al lado del calendario, para cambiar un evento en el sitio',
+      'Línea de tiempo con una fila por recurso a lo largo de siete meses',
+    ],
   },
   features: {
     month: {
@@ -108,7 +115,13 @@ export const es: TranslationStrings = {
   },
   demos: {
     title: 'Demos',
-    description: 'Vistas en vivo de mes, semana, día y agenda, más añadir eventos y redimensionar, una pestaña a la vez.',
+    description: 'El planificador 1.0.2 es el calendario de eventos y la línea de tiempo por recurso. Las vistas clásicas de mes, semana, día y agenda quedan debajo.',
+    schedulerTitle: 'Calendario de eventos',
+    schedulerDescription: 'Cuadrícula mensual, filtro de recursos, editor lateral y línea de tiempo. Los diálogos y los filtros salen de Bear.',
+    schedulerPackage: '@forgedevstack/calendar en npm',
+    eventCalendar: 'Calendario de eventos',
+    eventTimeline: 'Línea de tiempo',
+    classicTitle: 'Vistas clásicas',
     switchTitle: 'Líneas de relación',
     switchDescription: 'Los eventos con relatedTo dibujan cintas en mes y semana. Muéstralas siempre, solo al hacer clic, o nunca — relations.visible.',
     addEvents: {

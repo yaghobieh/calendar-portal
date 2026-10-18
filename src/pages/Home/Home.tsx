@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { Link } from '@forgedevstack/forge-compass/react';
 import { Typography, Button, Badge, Flex, CodeBlock, BearIcons, Card, useBear } from '@forgedevstack/bear';
 import { Layout } from '@/components/Layout';
-import { ForgeCalendar } from '@/components/ForgeCalendar';
+import { EventCalendar } from '@forgedevstack/calendar';
 import { useI18n } from '@/i18n';
 import { useThemeColors } from '@/hooks';
 import { FORGESTACK_URL, ROUTE_PATHS } from '@/constants';
@@ -24,21 +24,34 @@ export const Home: FC = () => {
   return (
     <Layout>
       <section className="mesh-bg relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-20 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 md:pt-44 pb-12">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <Badge variant="info" className="mb-6">
+              {t.home.badge}
+            </Badge>
+
+            <Typography variant="h1" className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight mb-6">
+              <span className="text-gradient-calendar">{t.home.title}</span>
+            </Typography>
+
+            <Typography variant="h4" className="font-semibold mb-8" style={{ color: subtitleColor }}>
+              {t.home.subtitle}
+            </Typography>
+
+            <div className="text-left rounded-2xl border px-6 py-5" style={{ borderColor: cardBorder }}>
+              <Typography variant="h3" className="text-2xl font-bold mb-4">{t.home.newsTitle}</Typography>
+              <ul className="space-y-2">
+                {t.home.newsItems.map((item) => (
+                  <li key={item}>
+                    <Typography variant="body1" style={{ color: mutedText }}>{item}</Typography>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div>
-              <Badge variant="info" className="mb-4 sm:mb-6">
-                {t.home.badge}
-              </Badge>
-
-              <Typography variant="h1" className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-2">
-                <span className="text-gradient-calendar">{t.home.title}</span>
-              </Typography>
-
-              <Typography variant="h4" className="font-semibold mb-4" style={{ color: subtitleColor }}>
-                {t.home.subtitle}
-              </Typography>
-
               <Typography variant="body2" className="mb-8" style={{ color: mutedText }}>
                 {t.home.pickerNote}
               </Typography>
@@ -89,7 +102,14 @@ export const Home: FC = () => {
                 {t.home.liveDemoTitle}
               </Typography>
               <div className="calendar-demo">
-                <ForgeCalendar defaultView="month" events={SAMPLE_EVENTS} mode={mode} />
+                <EventCalendar
+                  events={SAMPLE_EVENTS}
+                  mode={mode}
+                  title=""
+                  description=""
+                  showResourceFilter
+                  showMiniCalendar
+                />
               </div>
             </div>
           </div>

@@ -60,6 +60,8 @@ export interface TranslationStrings {
     ecosystemTitle: string;
     ecosystemDescription: string;
     visitForgeStack: string;
+    newsTitle: string;
+    newsItems: string[];
   };
   features: {
     month: FeatureCopy;
@@ -118,6 +120,12 @@ export interface TranslationStrings {
   demos: {
     title: string;
     description: string;
+    schedulerTitle: string;
+    schedulerDescription: string;
+    schedulerPackage: string;
+    eventCalendar: string;
+    eventTimeline: string;
+    classicTitle: string;
     switchTitle: string;
     switchDescription: string;
     addEvents: AddEventsCopy;
